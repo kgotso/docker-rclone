@@ -26,12 +26,16 @@ else
       d=$(date +%Y_%m_%d-%H_%M_%S)
       LOG_FILE="/logs/$d.txt"
       echo "INFO: Log file output to $LOG_FILE"
-      echo "INFO: Starting rclone $RCLONE_CMD $SYNC_SRC $SYNC_DEST $RCLONE_OPTS $SYNC_OPTS --log-file=${LOG_FILE}"
-      rclone $RCLONE_CMD $SYNC_SRC $SYNC_DEST $RCLONE_OPTS $SYNC_OPTS --log-file=${LOG_FILE}
+      echo "INFO: Starting rclone $RCLONE_CMD $SYNC_SRC $SYNC_TEMP $RCLONE_OPTS $SYNC_OPTS --log-file=${LOG_FILE}"
+      rclone $RCLONE_CMD $SYNC_SRC $SYNC_TEMP $RCLONE_OPTS $SYNC_OPTS --log-file=${LOG_FILE}
+      echo "INFO: Moving files to final location $SYNC_DEST "
+      mv $SYNC_TEMP $SYNC_DEST
       export RETURN_CODE=$?
     else
       echo "INFO: Starting rclone $RCLONE_CMD $SYNC_SRC $SYNC_DEST $RCLONE_OPTS $SYNC_OPTS"
-      rclone $RCLONE_CMD $SYNC_SRC $SYNC_DEST $RCLONE_OPTS $SYNC_OPTS
+      rclone $RCLONE_CMD $SYNC_SRC $SYNC_TEMP $RCLONE_OPTS $SYNC_OPTS
+      echo "INFO: Moving files to final location $SYNC_DEST "
+      mv $SYNC_TEMP $SYNC_DEST
       export RETURN_CODE=$?
     fi
   else
@@ -43,11 +47,15 @@ else
       LOG_FILE="/logs/$d.txt"
       echo "INFO: Log file output to $LOG_FILE"
       echo "INFO: Starting rclone $RCLONE_CMD $SYNC_SRC $SYNC_DEST $RCLONE_OPTS $SYNC_OPTS --log-file=${LOG_FILE}"
-      rclone $RCLONE_CMD $SYNC_SRC $SYNC_DEST $RCLONE_OPTS $SYNC_OPTS --log-file=${LOG_FILE}
+      rclone $RCLONE_CMD $SYNC_SRC $SYNC_TEMP $RCLONE_OPTS $SYNC_OPTS --log-file=${LOG_FILE}
+      echo "INFO: Moving files to final location $SYNC_DEST "
+      mv $SYNC_TEMP $SYNC_DEST
       export RETURN_CODE=$?
     else
       echo "INFO: Starting rclone $RCLONE_CMD $SYNC_SRC $SYNC_DEST $RCLONE_OPTS $SYNC_OPTS"
-      rclone $RCLONE_CMD $SYNC_SRC $SYNC_DEST $RCLONE_OPTS $SYNC_OPTS
+      rclone $RCLONE_CMD $SYNC_SRC $SYNC_TEMP $RCLONE_OPTS $SYNC_OPTS
+      echo "INFO: Moving files to final location $SYNC_DEST "
+      mv $SYNC_TEMP $SYNC_DEST
       export RETURN_CODE=$?
     fi
       if [ -z "$CHECK_URL" ]
