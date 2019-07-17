@@ -41,6 +41,11 @@ fi
 
 rm -f /tmp/sync.pid
 
+if [ ! -z "$SYNC_TEMP" ] 
+then
+  SYNC_TEMP=SYNC_DEST
+fi
+
 # Check for source and destination ; launch config if missing
 if [ -z "$SYNC_SRC" ] || [ -z "$SYNC_DEST" ]
 then
