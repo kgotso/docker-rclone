@@ -1,6 +1,6 @@
 # docker-rclone
 
-Docker image to perform a [rclone](http://rclone.org) sync based on a cron schedule, with [healthchecks.io](https://healthchecks.io) monitoring.
+Docker image to perform a [rclone](http://rclone.org) sync based on a cron schedule, with [healthchecks.io](https://healthchecks.io) monitoring. 
 
 rclone is a command line program to sync files and directories to and from:
 
@@ -40,6 +40,7 @@ $ docker run --rm -it -v $(pwd)/config:/config pfidr34/rclone
 A few environment variables allow you to customize the behavior of rclone:
 
 * `SYNC_SRC` source location for `rclone sync/copy/move` command
+* `SYNC_TEMP` dir location for `rclone sync/copy/move` command to use as temp staging area
 * `SYNC_DEST` destination location for `rclone sync/copy/move` command
 * `SYNC_OPTS` additional options for `rclone sync/copy/move` command. Defaults to `-v`
 * `RCLONE_CMD` set variable to `sync` `copy` or `move`  when running rclone. Defaults to `sync`
