@@ -48,6 +48,7 @@ A few environment variables allow you to customize the behavior of rclone:
 * `RCLONE_DIR_CHECK_SKIP` set variable to skip source directory check before sync. *Use with caution*
 * `CRON` crontab schedule `0 0 * * *` to perform sync every midnight. Also supprorts cron shortcuts: `@yearly` `@monthly` `@weekly` `@daily` `@hourly`
 * `CRON_ABORT` crontab schedule `0 6 * * *` to abort sync at 6am
+* `CRON_CLEAR` crontab schedule `30 23 * * *` to clear download directory at 23:30
 * `FORCE_SYNC` set variable to perform a sync upon boot
 * `CHECK_URL` [healthchecks.io](https://healthchecks.io) url or similar cron monitoring to perform a `GET` after a successful sync
 * `FAIL_URL` Fail URL to perform a `GET` after unsuccessful execution. By default this is `CHECK_URL` with appended "/fail" at the end
