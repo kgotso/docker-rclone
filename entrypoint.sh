@@ -84,6 +84,7 @@ else
     else
       echo "$CRON_ABORT /sync-abort.sh >>/tmp/sync.log 2>&1" >> /tmp/crontab.tmp
     fi
+    echo "$CRON_CLEAR /clear.sh >>/tmp/sync.log 2>&1" >> /tmp/crontab.tmp
     crontab /tmp/crontab.tmp
     rm /tmp/crontab.tmp
 
