@@ -17,6 +17,7 @@ ENV OUTPUT_LOG=
 ENV ROTATE_LOG=
 ENV CRON=
 ENV CRON_ABORT=
+ENV CRON_CLEAR=
 ENV FORCE_SYNC=
 ENV CHECK_URL=
 ENV FAIL_URL=
@@ -36,6 +37,7 @@ RUN URL=http://downloads.rclone.org/${RCLONE_VERSION}/rclone-${RCLONE_VERSION}-l
 COPY entrypoint.sh /
 COPY sync.sh /
 COPY sync-abort.sh /
+COPY clear.sh /
 
 VOLUME ["/config"]
 VOLUME ["/logs"]
