@@ -29,13 +29,13 @@ else
       echo "INFO: Starting rclone $RCLONE_CMD $SYNC_SRC $SYNC_TEMP $RCLONE_OPTS $SYNC_OPTS --log-file=${LOG_FILE}"
       rclone $RCLONE_CMD $SYNC_SRC $SYNC_TEMP $RCLONE_OPTS $SYNC_OPTS --log-file=${LOG_FILE}
       echo "INFO: Moving files to final location $SYNC_DEST "
-      mv $SYNC_TEMP $SYNC_DEST
+      mv $SYNC_TEMP/* $SYNC_DEST
       export RETURN_CODE=$?
     else
       echo "INFO: Starting rclone $RCLONE_CMD $SYNC_SRC $SYNC_DEST $RCLONE_OPTS $SYNC_OPTS"
       rclone $RCLONE_CMD $SYNC_SRC $SYNC_TEMP $RCLONE_OPTS $SYNC_OPTS
       echo "INFO: Moving files to final location $SYNC_DEST "
-      mv $SYNC_TEMP $SYNC_DEST
+      mv $SYNC_TEMP/* $SYNC_DEST
       export RETURN_CODE=$?
     fi
   else
@@ -49,13 +49,13 @@ else
       echo "INFO: Starting rclone $RCLONE_CMD $SYNC_SRC $SYNC_DEST $RCLONE_OPTS $SYNC_OPTS --log-file=${LOG_FILE}"
       rclone $RCLONE_CMD $SYNC_SRC $SYNC_TEMP $RCLONE_OPTS $SYNC_OPTS --log-file=${LOG_FILE}
       echo "INFO: Moving files to final location $SYNC_DEST "
-      mv $SYNC_TEMP $SYNC_DEST
+      mv $SYNC_TEMP/* $SYNC_DEST
       export RETURN_CODE=$?
     else
       echo "INFO: Starting rclone $RCLONE_CMD $SYNC_SRC $SYNC_DEST $RCLONE_OPTS $SYNC_OPTS"
       rclone $RCLONE_CMD $SYNC_SRC $SYNC_TEMP $RCLONE_OPTS $SYNC_OPTS
       echo "INFO: Moving files to final location $SYNC_DEST "
-      mv $SYNC_TEMP $SYNC_DEST
+      mv $SYNC_TEMP/* $SYNC_DEST
       export RETURN_CODE=$?
     fi
       if [ -z "$CHECK_URL" ]
