@@ -39,6 +39,7 @@ then
   echo $TZ > /etc/timezone
 fi
 
+chmod u+x /clear.sh
 rm -f /tmp/sync.pid
 
 if [ ! -z "$SYNC_TEMP" ] 
